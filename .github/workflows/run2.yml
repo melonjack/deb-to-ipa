@@ -13,9 +13,8 @@ jobs:
 
     steps:
       - name: Convert deb to IPA
-        run: |
-          curl -L -o ${{ github.workspace }}/app.deb ${{ github.workspace }}/azule.deb
-          dpkg-deb -X ${{ github.workspace }}/app.deb ${{ github.workspace }}/app
+        run: 
+          dpkg-deb -X ${{ github.workspace }}/azule.deb ${{ github.workspace }}/app
 
           mkdir -p ${{ github.workspace }}/ipa/Payload
           cp -R ${{ github.workspace }}/app/Applications/* ${{ github.workspace }}/ipa/Payload
